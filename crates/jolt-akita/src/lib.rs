@@ -32,6 +32,11 @@
     clippy::wildcard_enum_match_arm
 )]
 
+#[cfg(feature = "metal")]
+mod metal;
+#[cfg(feature = "metal")]
+pub use metal::MetalTraceCompute;
+
 mod adapters;
 pub mod configs;
 pub mod deferred;

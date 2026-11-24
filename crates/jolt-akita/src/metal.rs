@@ -3,6 +3,10 @@ use std::{
     sync::{Arc, Mutex, Weak},
 };
 
+use crate::{
+    AkitaField, TraceOneHotComputeKernel, TraceOneHotFoldPlan, TraceOneHotPackingPlan,
+    TraceOneHotRows,
+};
 use akita_error::{checked, AkitaError};
 use akita_metal::onehot::{DeviceK16Sources, OneHotCommitShape};
 use akita_metal::onehot_fold::{OneHotFoldChallenge, OneHotFoldShape, OneHotFoldWorkspace};
@@ -11,10 +15,6 @@ use akita_metal::onehot_packing::{OneHotPackingShape, OneHotPackingWorkspace};
 use akita_metal::{AkitaMetal, AkitaMetalError};
 use akita_pcs::custom_source::CommitInnerPlan;
 use akita_types::{AkitaExpandedSetup, RingVec};
-use jolt_akita::{
-    AkitaField, TraceOneHotComputeKernel, TraceOneHotFoldPlan, TraceOneHotPackingPlan,
-    TraceOneHotRows,
-};
 use jolt_field::Zero;
 
 const D: usize = 512;

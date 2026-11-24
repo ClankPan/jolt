@@ -13,7 +13,7 @@ workspace = true
 
 [features]
 default = ["parallel"]
-metal = ["dep:bytemuck", "dep:bytemuck_derive", "akita", "dep:jolt-metal", "dep:akita-metal", "dep:akita-error", "dep:akita-pcs", "dep:akita-types"]
+metal = ["dep:bytemuck", "dep:bytemuck_derive", "akita", "dep:jolt-metal", "jolt-akita/metal", "dep:akita-metal", "dep:akita-error", "dep:akita-pcs", "dep:akita-types"]
 akita = [
   "dep:jolt-akita",
   "jolt-claims/akita",

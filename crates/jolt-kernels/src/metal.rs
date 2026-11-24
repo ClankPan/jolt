@@ -15,8 +15,7 @@ use crate::{
 };
 use jolt_witness::JoltWitnessPlane;
 
-mod trace_compute;
-pub use trace_compute::MetalTraceCompute;
+pub use jolt_akita::MetalTraceCompute;
 
 impl<PCS: CommitmentScheme<Field = AkitaField>> JoltBackend<AkitaField, PCS> {
     /// Use Metal for admitted instruction, bytecode, Booleanity and register kernels.

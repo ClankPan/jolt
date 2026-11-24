@@ -13,7 +13,8 @@ default = ["parallel"]
 # Akita's rayon-backed kernels and backend thread pool. A single-core zkVM
 # guest builds without it; Jolt's own prover kernels in this crate still link
 # rayon, which a guest verifier never calls.
-parallel = ["akita-pcs/parallel"]
+parallel = ["akita-pcs/parallel", "akita-metal?/parallel"]
+metal = ["dep:akita-metal"]
 # Akita's NTT kernels over the jolt-inlines NTT inline, for a RISC-V guest
 # verifier. Akita runs on Jolt's Keccak transcript sponge, for which
 # jolt-transcript has no guest inline.
@@ -26,6 +27,7 @@ profiling = ["parallel"]
 # Jolt keeps its own catalogs for Jolt-specific trace shapes; Akita's shipped
 # catalogs do not cover this adapter's complete production and test grids.
 akita-algebra.workspace = true
+akita-metal = { workspace = true, optional = true }
 akita-config.workspace = true
 akita-error.workspace = true
 akita-pcs = { workspace = true, features = ["transcript-keccak"] }
